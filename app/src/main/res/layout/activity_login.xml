@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F0F4F0"
+    android:background="#F8FAF8"
     android:fillViewport="true">
 
     <LinearLayout
@@ -11,17 +11,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Hero Section with gradient -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:orientation="vertical"
+            android:layout_height="300dp"
+            android:background="@drawable/bg_gradient_hero"
             android:gravity="center"
-            android:background="@drawable/bg_gradient_green"
-            android:paddingTop="40dp"
-            android:paddingBottom="32dp">
+            android:orientation="vertical"
+            android:paddingTop="48dp"
+            android:paddingBottom="56dp">
 
-            <!-- Logo circle -->
             <FrameLayout
                 android:layout_width="96dp"
                 android:layout_height="96dp"
@@ -30,15 +28,15 @@
                 <View
                     android:layout_width="96dp"
                     android:layout_height="96dp"
-                    android:background="@drawable/shape_logo_circle" />
+                    android:background="@drawable/shape_logo_bg_circle" />
 
                 <ImageView
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_tractor"
-                    app:tint="#1B5E20"
-                    android:contentDescription="App Logo" />
+                    android:contentDescription="App Logo"
+                    android:src="@mipmap/ic_launcher_round"
+                    android:scaleType="fitCenter" />
             </FrameLayout>
 
             <TextView
@@ -48,29 +46,29 @@
                 android:fontFamily="sans-serif-medium"
                 android:textSize="26sp"
                 android:textColor="#FFFFFF"
-                android:letterSpacing="0.02"
-                android:layout_marginBottom="6dp" />
+                android:letterSpacing="0.01"
+                android:layout_marginBottom="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Smart waste management for cleaner villages"
                 android:fontFamily="sans-serif"
-                android:textSize="14sp"
-                android:textColor="#CCFFFFFF"
-                android:gravity="center" />
+                android:textSize="13sp"
+                android:textColor="#CCBCEFC0"
+                android:gravity="center"
+                android:paddingHorizontal="28dp" />
 
         </LinearLayout>
 
-        <!-- Form Card -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="-28dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="-32dp"
+            android:layout_marginBottom="16dp"
             app:cardCornerRadius="20dp"
-            app:cardElevation="12dp"
+            app:cardElevation="10dp"
             app:cardBackgroundColor="#FFFFFF">
 
             <LinearLayout
@@ -85,7 +83,7 @@
                     android:text="Welcome Back!"
                     android:fontFamily="sans-serif-medium"
                     android:textSize="22sp"
-                    android:textColor="#1B5E20"
+                    android:textColor="#204E2B"
                     android:layout_marginBottom="4dp" />
 
                 <TextView
@@ -94,9 +92,10 @@
                     android:text="Sign in to track waste collection in your area"
                     android:fontFamily="sans-serif"
                     android:textSize="14sp"
-                    android:textColor="#757575"
+                    android:textColor="#414941"
                     android:layout_marginBottom="24dp" />
 
+                
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_email"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -104,20 +103,26 @@
                     android:layout_height="wrap_content"
                     android:hint="Email address"
                     android:layout_marginBottom="14dp"
-                    app:startIconDrawable="@android:drawable/ic_dialog_email"
-                    app:boxCornerRadiusBottomEnd="12dp"
-                    app:boxCornerRadiusBottomStart="12dp"
+                    app:startIconDrawable="@drawable/ic_email"
+                    app:startIconTint="#727970"
+                    app:boxCornerRadiusTopStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
-                    app:boxCornerRadiusTopStart="12dp">
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeColor="#386641"
+                    app:hintTextColor="#386641">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress"
-                        android:imeOptions="actionNext" />
+                        android:imeOptions="actionNext"
+                        android:textColor="#191C1B"
+                        android:textSize="15sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_password"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -126,31 +131,38 @@
                     android:hint="Password"
                     android:layout_marginBottom="24dp"
                     app:endIconMode="password_toggle"
-                    app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
-                    app:boxCornerRadiusBottomEnd="12dp"
-                    app:boxCornerRadiusBottomStart="12dp"
+                    app:startIconDrawable="@drawable/ic_lock"
+                    app:startIconTint="#727970"
+                    app:boxCornerRadiusTopStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
-                    app:boxCornerRadiusTopStart="12dp">
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeColor="#386641"
+                    app:hintTextColor="#386641">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
-                        android:imeOptions="actionDone" />
+                        android:imeOptions="actionDone"
+                        android:textColor="#191C1B"
+                        android:textSize="15sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_login"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="54dp"
                     android:text="Sign In"
                     android:fontFamily="sans-serif-medium"
                     android:textSize="16sp"
+                    android:textColor="#FFFFFF"
                     android:layout_marginBottom="12dp"
-                    app:cornerRadius="14dp"
-                    app:backgroundTint="#2E7D32" />
+                    app:cornerRadius="27dp"
+                    app:backgroundTint="#386641" />
 
+                
                 <com.google.android.material.progressindicator.LinearProgressIndicator
                     android:id="@+id/progress_login"
                     android:layout_width="match_parent"
@@ -158,19 +170,33 @@
                     android:layout_marginBottom="8dp"
                     android:indeterminate="true"
                     android:visibility="gone"
-                    app:indicatorColor="#2E7D32" />
+                    app:indicatorColor="#386641" />
 
-                <!-- Divider -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:layout_marginVertical="8dp">
-                    <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:background="#E0E0E0" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="  or  " android:textColor="#9E9E9E" android:textSize="13sp" />
-                    <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:background="#E0E0E0" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="#C1C9BE" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  or  "
+                        android:textColor="#727970"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="#C1C9BE" />
                 </LinearLayout>
 
                 <com.google.android.material.button.MaterialButton
@@ -181,38 +207,38 @@
                     android:text="Continue with Google"
                     android:fontFamily="sans-serif-medium"
                     android:textSize="15sp"
+                    android:textColor="#204E2B"
                     android:layout_marginTop="8dp"
-                    app:cornerRadius="14dp"
-                    app:strokeColor="#2E7D32"
-                    app:strokeWidth="1.5dp" />
+                    app:cornerRadius="26dp"
+                    app:strokeColor="#4D386641"
+                    app:strokeWidth="2dp" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Sign up link -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="32dp">
+            android:layout_marginBottom="40dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New to GramaWaste? "
-                android:textColor="#757575"
-                android:textSize="15sp" />
+                android:text="New to Grama Clean? "
+                android:textColor="#414941"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Create Account"
-                android:textColor="#2E7D32"
+                android:textColor="#204E2B"
                 android:textStyle="bold"
-                android:textSize="15sp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
     </LinearLayout>
