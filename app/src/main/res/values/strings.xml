@@ -39,6 +39,16 @@
     <string name="lang_toggle_en">English</string>
     <string name="lang_toggle_kn">ಕನ್ನಡ</string>
     <string name="lang_toggle_text">ಕನ್ನಡ</string>
+    <string name="good_day">Good Day! 😊</string>
+    <string name="collection_vehicle"> Collection Vehicle </string>
+    <string name="track_now">Track Now </string>
+    <string name="community_impact_title">Community Impact</string>
+    <string name="community_impact_tons">1.2 Tons</string>
+    <string name="community_impact_desc">of Waste saved from landfills this month.</string>
+    <string name="community_impact_tagline">Together, we\'re making a difference!</string>
+    <string name="co2_saved_label">CO₂ Saved</string>
+    <string name="co2_saved_value">240 kg</string>
+    <string name="ward_residents">🏘 Ward 5 • 142 active residents</string>
 
     <!-- Map / Tracker -->
     <string name="status_far">📍 Far Away</string>
@@ -66,6 +76,19 @@
     <string name="report_success_detail">The Panchayat has been notified.</string>
     <string name="uploading">Uploading…</string>
     <string name="select_photo_first">Please select a photo first</string>
+    <string name="report_title">Report Waste Blackspot</string>
+    <string name="report_subtitle_long">Take a photo and we\'ll notify the local authorities immediately.</string>
+    <string name="photo_zone_label">TAP TO CAPTURE OR UPLOAD</string>
+    <string name="detected_location_label">Detected Location</string>
+    <string name="edit_label">Edit</string>
+    <string name="additional_details_label">Additional Details (Optional)</string>
+    <string name="additional_details_hint">e.g. Broken bin, overflow near the park gate…</string>
+    <string name="waste_category_label">Waste Category</string>
+    <string name="chip_general_waste">General Waste</string>
+    <string name="chip_hazardous">Hazardous</string>
+    <string name="chip_construction">Construction</string>
+    <string name="btn_submit_report_arrow">Submit Garbage Report </string>
+    <string name="btn_change_photo">Change Photo</string>
 
     <!-- Guide -->
     <string name="guide_title">Waste Segregation Guide</string>

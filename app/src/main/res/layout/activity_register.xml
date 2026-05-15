@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F0F4F0"
+    android:background="#F8FAF8"
     android:fillViewport="true">
 
     <LinearLayout
@@ -11,33 +11,36 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Hero Section -->
+        <!-- ══════════════════════════════════════
+             HERO  — dark forest → green gradient
+             ══════════════════════════════════════ -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:orientation="vertical"
+            android:layout_height="280dp"
+            android:background="@drawable/bg_gradient_hero"
             android:gravity="center"
-            android:background="@drawable/bg_gradient_green"
-            android:paddingTop="36dp"
-            android:paddingBottom="28dp">
+            android:orientation="vertical"
+            android:paddingTop="48dp"
+            android:paddingBottom="56dp">
 
+            <!-- Mint circle + app icon -->
             <FrameLayout
                 android:layout_width="88dp"
                 android:layout_height="88dp"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="20dp">
 
                 <View
                     android:layout_width="88dp"
                     android:layout_height="88dp"
-                    android:background="@drawable/shape_logo_circle" />
+                    android:background="@drawable/shape_logo_bg_circle" />
 
                 <ImageView
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_tractor"
-                    app:tint="#1B5E20"
-                    android:contentDescription="App Logo" />
+                    android:contentDescription="App Logo"
+                    android:src="@mipmap/ic_launcher_round"
+                    android:scaleType="fitCenter" />
             </FrameLayout>
 
             <TextView
@@ -47,28 +50,31 @@
                 android:fontFamily="sans-serif-medium"
                 android:textSize="24sp"
                 android:textColor="#FFFFFF"
-                android:layout_marginBottom="5dp" />
+                android:layout_marginBottom="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Register to get live waste collection alerts"
+                android:text="Register to get live waste collection alerts and tracking"
                 android:fontFamily="sans-serif"
                 android:textSize="13sp"
-                android:textColor="#CCFFFFFF"
-                android:gravity="center" />
+                android:textColor="#CCBCEFC0"
+                android:gravity="center"
+                android:paddingHorizontal="32dp" />
 
         </LinearLayout>
 
-        <!-- Form Card -->
+        <!-- ══════════════════════════════════════
+             FORM CARD — overlaps hero by 32dp
+             ══════════════════════════════════════ -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="-28dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="-32dp"
+            android:layout_marginBottom="16dp"
             app:cardCornerRadius="20dp"
-            app:cardElevation="12dp"
+            app:cardElevation="10dp"
             app:cardBackgroundColor="#FFFFFF">
 
             <LinearLayout
@@ -83,7 +89,7 @@
                     android:text="Create Account"
                     android:fontFamily="sans-serif-medium"
                     android:textSize="22sp"
-                    android:textColor="#1B5E20"
+                    android:textColor="#204E2B"
                     android:layout_marginBottom="4dp" />
 
                 <TextView
@@ -92,9 +98,10 @@
                     android:text="Fill in your details to get started"
                     android:fontFamily="sans-serif"
                     android:textSize="14sp"
-                    android:textColor="#757575"
+                    android:textColor="#414941"
                     android:layout_marginBottom="24dp" />
 
+                <!-- Full Name -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_name"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -102,18 +109,26 @@
                     android:layout_height="wrap_content"
                     android:hint="Full Name"
                     android:layout_marginBottom="14dp"
-                    app:boxCornerRadiusBottomEnd="12dp"
-                    app:boxCornerRadiusBottomStart="12dp"
+                    app:startIconDrawable="@drawable/ic_person"
+                    app:startIconTint="#727970"
+                    app:boxCornerRadiusTopStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
-                    app:boxCornerRadiusTopStart="12dp">
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeColor="#386641"
+                    app:hintTextColor="#386641">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:imeOptions="actionNext" />
+                        android:inputType="textPersonName|textCapWords"
+                        android:imeOptions="actionNext"
+                        android:textColor="#191C1B"
+                        android:textSize="15sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Email -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_email"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -121,19 +136,26 @@
                     android:layout_height="wrap_content"
                     android:hint="Email address"
                     android:layout_marginBottom="14dp"
-                    app:startIconDrawable="@android:drawable/ic_dialog_email"
-                    app:boxCornerRadiusBottomEnd="12dp"
-                    app:boxCornerRadiusBottomStart="12dp"
+                    app:startIconDrawable="@drawable/ic_email"
+                    app:startIconTint="#727970"
+                    app:boxCornerRadiusTopStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
-                    app:boxCornerRadiusTopStart="12dp">
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeColor="#386641"
+                    app:hintTextColor="#386641">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress"
-                        android:imeOptions="actionNext" />
+                        android:imeOptions="actionNext"
+                        android:textColor="#191C1B"
+                        android:textSize="15sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Password -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_password"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -142,19 +164,26 @@
                     android:hint="Password"
                     android:layout_marginBottom="14dp"
                     app:endIconMode="password_toggle"
-                    app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
-                    app:boxCornerRadiusBottomEnd="12dp"
-                    app:boxCornerRadiusBottomStart="12dp"
+                    app:startIconDrawable="@drawable/ic_lock"
+                    app:startIconTint="#727970"
+                    app:boxCornerRadiusTopStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
-                    app:boxCornerRadiusTopStart="12dp">
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeColor="#386641"
+                    app:hintTextColor="#386641">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
-                        android:imeOptions="actionNext" />
+                        android:imeOptions="actionNext"
+                        android:textColor="#191C1B"
+                        android:textSize="15sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Confirm Password -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_confirm"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -163,64 +192,74 @@
                     android:hint="Confirm Password"
                     android:layout_marginBottom="24dp"
                     app:endIconMode="password_toggle"
-                    app:boxCornerRadiusBottomEnd="12dp"
-                    app:boxCornerRadiusBottomStart="12dp"
+                    app:startIconDrawable="@drawable/ic_lock_reset"
+                    app:startIconTint="#727970"
+                    app:boxCornerRadiusTopStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
-                    app:boxCornerRadiusTopStart="12dp">
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeColor="#386641"
+                    app:hintTextColor="#386641">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_confirm"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
-                        android:imeOptions="actionDone" />
+                        android:imeOptions="actionDone"
+                        android:textColor="#191C1B"
+                        android:textSize="15sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Create Account — pill button -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_register"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="54dp"
                     android:text="Create Account"
                     android:fontFamily="sans-serif-medium"
                     android:textSize="16sp"
+                    android:textColor="#FFFFFF"
                     android:layout_marginBottom="12dp"
-                    app:cornerRadius="14dp"
-                    app:backgroundTint="#2E7D32" />
+                    app:cornerRadius="27dp"
+                    app:backgroundTint="#204E2B" />
 
+                <!-- Progress -->
                 <com.google.android.material.progressindicator.LinearProgressIndicator
                     android:id="@+id/progress_register"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:indeterminate="true"
                     android:visibility="gone"
-                    app:indicatorColor="#2E7D32" />
+                    app:indicatorColor="#386641" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Login link -->
+        <!-- Bottom link -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="32dp">
+            android:layout_marginBottom="40dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Already have an account? "
-                android:textColor="#757575"
-                android:textSize="15sp" />
+                android:textColor="#414941"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sign In"
-                android:textColor="#2E7D32"
+                android:textColor="#204E2B"
                 android:textStyle="bold"
-                android:textSize="15sp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
     </LinearLayout>

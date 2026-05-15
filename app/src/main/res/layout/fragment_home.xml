@@ -14,14 +14,14 @@
         <!-- ═══════════════ HERO HEADER ═══════════════ -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="175dp"
             android:orientation="vertical"
             android:background="@drawable/bg_gradient_green"
-            android:paddingHorizontal="20dp"
-            android:paddingTop="28dp"
-            android:paddingBottom="48dp">
+            android:paddingHorizontal="22dp"
+            android:paddingTop="26dp"
+            android:paddingBottom="46dp">
 
-            <!-- Top row: welcome + language toggle -->
+            <!-- Top row: welcome + language toggle + sign out -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,10 +37,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Good Day! 😊"
+                        android:text="@string/good_day"
                         android:fontFamily="sans-serif"
                         android:textSize="14sp"
-                        android:textColor="#CCFFFFFF" />
+                        android:textColor="#D9FFFFFF" />
 
                     <TextView
                         android:id="@+id/tvWelcomeName"
@@ -48,7 +48,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/welcome_resident"
                         android:fontFamily="sans-serif-medium"
-                        android:textSize="22sp"
+                        android:textSize="24sp"
                         android:textColor="#FFFFFF"
                         android:layout_marginTop="2dp" />
                 </LinearLayout>
@@ -61,8 +61,19 @@
                     android:text="@string/lang_toggle_text"
                     android:textSize="12sp"
                     android:textColor="#FFFFFF"
-                    app:strokeColor="#AAFFFFFF"
+                    app:strokeColor="#88FFFFFF"
                     app:cornerRadius="18dp" />
+
+                <ImageButton
+                    android:id="@+id/btnSignOut"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="8dp"
+                    android:src="@android:drawable/ic_lock_power_off"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:tint="#FFFFFF"
+                    android:contentDescription="Sign Out" />
+
             </LinearLayout>
 
             <!-- Subtitle -->
@@ -71,9 +82,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/home_subtitle"
                 android:fontFamily="sans-serif"
-                android:textSize="13sp"
-                android:textColor="#B3FFFFFF"
-                android:layout_marginTop="6dp" />
+                android:textSize="14sp"
+                android:textColor="#D9FFFFFF"
+                android:layout_marginTop="4dp" />
         </LinearLayout>
 
         <!-- ═══════════════ FLOATING CARDS SECTION ═══════════════ -->
@@ -81,10 +92,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="-44dp"
+            android:layout_marginTop="-24dp"
             android:paddingHorizontal="16dp">
 
-            <!-- TRACTOR STATUS CARD (full width, overlaps hero) -->
+            <!-- TRACTOR STATUS CARD -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardTractorStatus"
                 android:layout_width="match_parent"
@@ -101,7 +112,6 @@
                     android:padding="18dp"
                     android:gravity="center_vertical">
 
-                    <!-- Green icon circle -->
                     <FrameLayout
                         android:layout_width="52dp"
                         android:layout_height="52dp"
@@ -127,7 +137,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="COLLECTION TRUCK"
+                            android:text="@string/collection_vehicle"
                             android:fontFamily="sans-serif-medium"
                             android:textSize="10sp"
                             android:textColor="#9E9E9E"
@@ -158,180 +168,152 @@
                         android:id="@+id/btnOpenMap"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="Track"
+                        android:text="@string/track_now"
                         android:fontFamily="sans-serif-medium"
                         android:textSize="13sp"
                         app:cornerRadius="12dp"
                         app:backgroundTint="#2E7D32" />
+
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- QUICK ACTIONS ROW -->
-            <LinearLayout
+            <!-- ═══════════════ COMMUNITY IMPACT CARD ═══════════════ -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="12dp">
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#E8F5E9">
 
-                <!-- Report Card -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardReport"
-                    android:layout_width="0dp"
-                    android:layout_height="110dp"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="6dp"
-                    app:cardCornerRadius="18dp"
-                    app:cardElevation="4dp"
-                    app:cardBackgroundColor="#FFF8F0">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
 
+                    <!-- Title Row -->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="14dp">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
 
-                        <FrameLayout
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:layout_marginBottom="8dp">
-                            <View
-                                android:layout_width="44dp"
-                                android:layout_height="44dp"
-                                android:background="@drawable/shape_orange_circle" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="⚠️"
-                                android:textSize="22sp" />
-                        </FrameLayout>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_community"
+                            android:layout_marginEnd="6dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Report"
-                            android:fontFamily="sans-serif-medium"
-                            android:textSize="13sp"
-                            android:textColor="#BF360C"
-                            android:gravity="center" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Blackspot"
-                            android:fontFamily="sans-serif"
-                            android:textSize="11sp"
-                            android:textColor="#9E9E9E"
-                            android:gravity="center" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Live Map Card -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardLiveMap"
-                    android:layout_width="0dp"
-                    android:layout_height="110dp"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="6dp"
-                    app:cardCornerRadius="18dp"
-                    app:cardElevation="4dp"
-                    app:cardBackgroundColor="#F0F8F0">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="14dp">
-
-                        <FrameLayout
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:layout_marginBottom="8dp">
-                            <View
-                                android:layout_width="44dp"
-                                android:layout_height="44dp"
-                                android:background="@drawable/shape_dot_green_circle" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="📍"
-                                android:textSize="22sp" />
-                        </FrameLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Live Map"
+                            android:text="@string/community_impact_title"
                             android:fontFamily="sans-serif-medium"
                             android:textSize="13sp"
                             android:textColor="#1B5E20"
-                            android:gravity="center" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Track truck"
-                            android:fontFamily="sans-serif"
-                            android:textSize="11sp"
-                            android:textColor="#9E9E9E"
-                            android:gravity="center" />
+                            android:letterSpacing="0.03" />
                     </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
 
-                <!-- Guide Card -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardGuide"
-                    android:layout_width="0dp"
-                    android:layout_height="110dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="6dp"
-                    app:cardCornerRadius="18dp"
-                    app:cardElevation="4dp"
-                    app:cardBackgroundColor="#F0F4FF">
+                    <!-- Big stat -->
+                    <TextView
+                        android:id="@+id/tvCommunityTons"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/community_impact_tons"
+                        android:fontFamily="sans-serif-black"
+                        android:textSize="38sp"
+                        android:textColor="#1B5E20" />
 
-                    <LinearLayout
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/community_impact_desc"
+                        android:fontFamily="sans-serif"
+                        android:textSize="13sp"
+                        android:textColor="#33691E"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/community_impact_tagline"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="italic"
+                        android:textSize="12sp"
+                        android:textColor="#388E3C"
+                        android:layout_marginBottom="14dp" />
+
+                    <!-- CO2 sub-card -->
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="14dp">
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="#FFFFFF">
 
-                        <FrameLayout
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:layout_marginBottom="8dp">
-                            <View
-                                android:layout_width="44dp"
-                                android:layout_height="44dp"
-                                android:background="@drawable/shape_blue_circle" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="14dp">
+
+                            <FrameLayout
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="12dp">
+                                <View
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/shape_dot_green_circle" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="🌲"
+                                    android:textSize="18sp" />
+                            </FrameLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/co2_saved_label"
+                                    android:fontFamily="sans-serif"
+                                    android:textSize="11sp"
+                                    android:textColor="#9E9E9E" />
+
+                                <TextView
+                                    android:id="@+id/tvCo2Saved"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/co2_saved_value"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:textSize="16sp"
+                                    android:textColor="#1B5E20" />
+                            </LinearLayout>
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="📋"
-                                android:textSize="22sp" />
-                        </FrameLayout>
+                                android:text="@string/ward_residents"
+                                android:fontFamily="sans-serif"
+                                android:textSize="11sp"
+                                android:textColor="#757575" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Guide"
-                            android:fontFamily="sans-serif-medium"
-                            android:textSize="13sp"
-                            android:textColor="#1565C0"
-                            android:gravity="center" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Segregation"
-                            android:fontFamily="sans-serif"
-                            android:textSize="11sp"
-                            android:textColor="#9E9E9E"
-                            android:gravity="center" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <!-- COLLECTION SCHEDULE CARD -->
             <com.google.android.material.card.MaterialCardView

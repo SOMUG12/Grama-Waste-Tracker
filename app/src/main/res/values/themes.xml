@@ -17,6 +17,15 @@
         <item name="colorSurfaceVariant">@color/green_surface_variant</item>
         <item name="colorOnSurfaceVariant">@color/green_on_surface_variant</item>
         <item name="colorOutline">@color/green_outline</item>
+        <item name="android:statusBarColor">#0B3D16</item>
+    </style>
+    <style name="Theme.GramaWasteTracker.Toolbar" parent="Theme.GramaWasteTracker">
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="actionOverflowButtonStyle">@style/OverflowStyle</item>
+    </style>
+
+    <style name="OverflowStyle" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">#FFFFFF</item>
     </style>
 
     <style name="Theme.GramaWasteTracker" parent="Base.Theme.GramaWasteTracker" />

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/color/chip_stroke_selector.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Checked: transparent border (fill speaks for itself) -->
+    <item android:state_checked="true" android:color="#00000000" />
+    <!-- Default: subtle green border -->
+    <item android:color="#386641" />
+</selector>

@@ -40,6 +40,16 @@
     <string name="lang_toggle_en">English</string>
     <string name="lang_toggle_kn">ಕನ್ನಡ</string>
     <string name="lang_toggle_text">ಕನ್ನಡ</string>
+    <string name="good_day"> ಶುಭ ದಿನ! 😊</string>
+    <string name="collection_vehicle"> ಕಸದ ವಾಹನ </string>
+    <string name="track_now">ಟ್ರ್ಯಾಕ್ ಮಾಡಿ </string>
+    <string name="community_impact_title">ಸಮುದಾಯಕ್ಕೆ ಆದ ಉಪಯೋಗ</string>
+    <string name="community_impact_tons">1.2 ಟನ್</string>
+    <string name="community_impact_desc">ಈ ತಿಂಗಳು ಕಸದ ಗುಡ್ಡೆಗೆ ಹೋಗುವುದನ್ನು ತಡೆದ ತ್ಯಾಜ್ಯ.</string>
+    <string name="community_impact_tagline">ಒಟ್ಟಾಗಿ ಒಳ್ಳೆಯ ಬದಲಾವಣೆ ತರುತ್ತಿದ್ದೇವೆ!</string>
+    <string name="co2_saved_label">CO₂ ಉಳಿಸಲಾಗಿದೆ</string>
+    <string name="co2_saved_value">240 ಕೆಜಿ</string>
+    <string name="ward_residents">🏘 ವಾರ್ಡ್ 5 • 142 ಸಕ್ರಿಯ ನಿವಾಸಿಗಳು</string>
 
     <!-- Map / Tracker -->
     <string name="status_far">📍 ಬಹಳ ದೂರದಲ್ಲಿದೆ</string>
@@ -67,6 +77,19 @@
     <string name="report_success_detail">ಪಂಚಾಯತ್‌ಗೆ ಮಾಹಿತಿ ನೀಡಲಾಗಿದೆ.</string>
     <string name="uploading">ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…</string>
     <string name="select_photo_first">ದಯವಿಟ್ಟು ಮೊದಲು ಫೋಟೋ ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="report_title">ಕಸದ ಸಮಸ್ಯೆ ವರದಿ ಮಾಡಿ</string>
+    <string name="report_subtitle_long">ಫೋಟೋ ತೆಗೆದು ಕಳುಹಿಸಿ, ನಾವು ತಕ್ಷಣ ಸ್ಥಳೀಯ ಅಧಿಕಾರಿಗಳಿಗೆ ತಿಳಿಸುತ್ತೇವೆ.</string>
+    <string name="photo_zone_label">ಫೋಟೋ ತೆಗೆಯಲು ಅಥವಾ ಅಪ್ಲೋಡ್ ಮಾಡಲು ಆಯ್ಕೆ ಮಾಡಿ</string>
+    <string name="detected_location_label">ಪತ್ತೆಯಾದ ಸ್ಥಳ</string>
+    <string name="edit_label">ಬದಲಿಸಿ</string>
+    <string name="additional_details_label">ಹೆಚ್ಚಿನ ವಿವರಗಳು (ಬೇಕಿದ್ದರೆ)</string>
+    <string name="additional_details_hint">ಉದಾ: ಒಡೆದ ಕಸದ ಡಬ್ಬಿ, ಪಾರ್ಕ್ ಗೇಟ್ ಹತ್ತಿರ ಕಸ ತುಂಬಿರುವುದು…</string>
+    <string name="waste_category_label">ತ್ಯಾಜ್ಯದ ವಿಧ</string>
+    <string name="chip_general_waste">ಸಾಮಾನ್ಯ ತ್ಯಾಜ್ಯ</string>
+    <string name="chip_hazardous">ಅಪಾಯಕಾರಿ ತ್ಯಾಜ್ಯ</string>
+    <string name="chip_construction">ಕಟ್ಟಡ ಕಾಮಗಾರಿಯ ಕಸ</string>
+    <string name="btn_submit_report_arrow">ಕಸದ ವರದಿ ಸಲ್ಲಿಸಿ </string>
+    <string name="btn_change_photo">ಫೋಟೋ ಬದಲಿಸಿ</string>
 
     <!-- Guide -->
     <string name="guide_title">ತ್ಯಾಜ್ಯ ವಿಂಗಡಣೆ ಮಾರ್ಗದರ್ಶಿ</string>

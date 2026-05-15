@@ -35,10 +35,27 @@ class RegisterActivity : AppCompatActivity() {
         val password = binding.etPassword.text.toString()
         val confirm  = binding.etConfirm.text.toString()
 
-        if (name.isEmpty())      { binding.tilName.error = "Required"; return }
-        if (email.isEmpty())     { binding.tilEmail.error = "Required"; return }
-        if (password.length < 6) { binding.tilPassword.error = "Min 6 characters"; return }
-        if (password != confirm)  { binding.tilConfirm.error = "Passwords do not match"; return }
+        // Clear all errors first
+        binding.tilName.error     = null
+        binding.tilEmail.error    = null
+        binding.tilPassword.error = null
+        binding.tilConfirm.error  = null
+
+        if (name.length < 2) {
+            binding.tilName.error = "Enter a valid name"; return
+        }
+        if (email.isEmpty()) {
+            binding.tilEmail.error = "Required"; return
+        }
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.tilEmail.error = "Invalid email address"; return
+        }
+        if (password.length < 6) {
+            binding.tilPassword.error = "Min 6 characters"; return
+        }
+        if (password != confirm) {
+            binding.tilConfirm.error = "Passwords do not match"; return
+        }
 
         setLoading(true)
         auth.createUserWithEmailAndPassword(email, password)
@@ -46,14 +63,13 @@ class RegisterActivity : AppCompatActivity() {
                 val uid = result.user!!.uid
                 FirebaseDatabase.getInstance().getReference("users/$uid").setValue(
                     mapOf(
-                        "role" to "resident",
-                        "name" to name,
-                        "email" to email,
+                        "role"      to "resident",
+                        "name"      to name,
+                        "email"     to email,
                         "createdAt" to System.currentTimeMillis()
                     )
                 ).addOnCompleteListener {
                     setLoading(false)
-                    // Residents go straight to MainActivity
                     startActivity(Intent(this, MainActivity::class.java).apply {
                         flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     })
@@ -68,6 +84,6 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun setLoading(on: Boolean) {
         binding.progressRegister.visibility = if (on) View.VISIBLE else View.GONE
-        binding.btnRegister.isEnabled = !on
+        binding.btnRegister.isEnabled       = !on
     }
 }

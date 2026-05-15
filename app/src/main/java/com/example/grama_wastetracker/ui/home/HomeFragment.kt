@@ -1,6 +1,7 @@
 package com.example.grama_wastetracker.ui.home
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
@@ -9,11 +10,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.example.grama_wastetracker.R
 import com.example.grama_wastetracker.databinding.FragmentHomeBinding
+import com.example.grama_wastetracker.ui.auth.LoginActivity
 import com.example.grama_wastetracker.utils.LocaleHelper
 import com.google.android.gms.location.LocationServices
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class HomeFragment : Fragment() {
@@ -21,7 +23,6 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    // Live user location for accurate distance calculation
     private var userLocation: Location? = null
 
     override fun onCreateView(
@@ -45,18 +46,27 @@ class HomeFragment : Fragment() {
             requireActivity().recreate()
         }
 
-        // Navigation
-        binding.btnOpenMap.setOnClickListener  {
-            requireActivity().findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottom_navigation)?.selectedItemId = R.id.nav_live_map
+        // Sign Out
+        // Sign Out
+        binding.btnSignOut.setOnClickListener {
+            android.app.AlertDialog.Builder(requireContext())
+                .setTitle("Sign Out")
+                .setMessage("Are you sure you want to sign out?")
+                .setPositiveButton("Sign Out") { _, _ ->
+                    FirebaseAuth.getInstance().signOut()
+                    startActivity(Intent(requireContext(), LoginActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    })
+                    requireActivity().finish()
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
         }
-        binding.cardLiveMap.setOnClickListener {
-            requireActivity().findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottom_navigation)?.selectedItemId = R.id.nav_live_map
-        }
-        binding.cardReport.setOnClickListener  {
-            requireActivity().findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottom_navigation)?.selectedItemId = R.id.nav_report
-        }
-        binding.cardGuide.setOnClickListener   {
-            requireActivity().findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottom_navigation)?.selectedItemId = R.id.nav_guide
+
+        // Navigate to map
+        binding.btnOpenMap.setOnClickListener {
+            requireActivity().findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottom_navigation)
+                ?.selectedItemId = R.id.nav_live_map
         }
 
         fetchUserLocation()
@@ -81,11 +91,10 @@ class HomeFragment : Fragment() {
                     val lng = snapshot.child("lng").getValue(Double::class.java) ?: return
                     val status = snapshot.child("status").getValue(String::class.java) ?: ""
 
-                    // Distance calculation using real user location if available
                     val result = FloatArray(1)
-                    val uLat = userLocation?.latitude ?: 12.9716 // Fallback to demo
+                    val uLat = userLocation?.latitude ?: 12.9716
                     val uLng = userLocation?.longitude ?: 77.5946
-                    
+
                     Location.distanceBetween(lat, lng, uLat, uLng, result)
                     val dist = result[0].toInt()
                     val eta = (dist / 1.2 / 60).toInt().coerceAtLeast(1)
@@ -93,9 +102,9 @@ class HomeFragment : Fragment() {
                     val statusLabel = when {
                         status.contains("Collect") -> getString(R.string.status_collecting)
                         status.contains("Idle")    -> getString(R.string.status_idle)
-                        dist < 200                  -> getString(R.string.status_arriving_soon)
-                        dist < 600                  -> getString(R.string.status_nearby)
-                        else                        -> getString(R.string.status_en_route)
+                        dist < 200                 -> getString(R.string.status_arriving_soon)
+                        dist < 600                 -> getString(R.string.status_nearby)
+                        else                       -> getString(R.string.status_en_route)
                     }
 
                     binding.tvHomeTractorStatus.text = statusLabel
@@ -106,6 +115,7 @@ class HomeFragment : Fragment() {
                     }
                     binding.tvHomeTractorDist.text = distanceText
                 }
+
                 override fun onCancelled(error: DatabaseError) {}
             })
     }

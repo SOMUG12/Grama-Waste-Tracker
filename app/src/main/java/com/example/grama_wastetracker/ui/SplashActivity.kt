@@ -14,6 +14,7 @@ import com.example.grama_wastetracker.ui.driver.DriverActivity
 import com.example.grama_wastetracker.utils.LocaleHelper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import androidx.core.view.WindowCompat
 
 class SplashActivity : AppCompatActivity() {
 
@@ -25,6 +26,7 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window, true)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

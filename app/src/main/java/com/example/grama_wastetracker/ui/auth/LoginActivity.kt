@@ -54,9 +54,21 @@ class LoginActivity : AppCompatActivity() {
     private fun doEmailLogin() {
         val email    = binding.etEmail.text.toString().trim()
         val password = binding.etPassword.text.toString()
-        if (email.isEmpty())    { binding.tilEmail.error = "Required"; return }
-        if (password.isEmpty()) { binding.tilPassword.error = "Required"; return }
-        binding.tilEmail.error = null; binding.tilPassword.error = null
+
+        // Clear previous errors
+        binding.tilEmail.error    = null
+        binding.tilPassword.error = null
+
+        if (email.isEmpty()) {
+            binding.tilEmail.error = "Required"; return
+        }
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.tilEmail.error = "Invalid email address"; return
+        }
+        if (password.isEmpty()) {
+            binding.tilPassword.error = "Required"; return
+        }
+
         setLoading(true)
         auth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener { r -> ensureAndRoute(r.user!!.uid, email) }
@@ -103,6 +115,7 @@ class LoginActivity : AppCompatActivity() {
             navigateByRole(role)
         }.addOnFailureListener {
             setLoading(false)
+            Snackbar.make(binding.root, "Could not verify account. Proceeding as resident.", Snackbar.LENGTH_SHORT).show()
             navigateByRole("resident")
         }
     }
